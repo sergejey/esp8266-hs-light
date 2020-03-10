@@ -71,11 +71,11 @@ String readStringEEPROM(int startIdx) {
 void writeStringEEPROM(String str, int startIdx) {
   for (int i = 0; i < EEPROM_STRING_MAX; ++i)
   {
-    EEPROM.update(startIdx + i, 0);
+    EEPROM.write(startIdx + i, 0);
   }
   for (unsigned int i = 0; i < str.length(); ++i)
   {
-    EEPROM.update(startIdx + i, str[i]);
+    EEPROM.write(startIdx + i, str[i]);
   }
   EEPROM.commit();
   delay(500);
@@ -86,8 +86,8 @@ void writeIntEEPROM(unsigned int p_value, int p_address) {
   byte lowByte = ((p_value >> 0) & 0xFF);
   byte highByte = ((p_value >> 8) & 0xFF);
 
-  EEPROM.update(p_address, lowByte);
-  EEPROM.update(p_address + 1, highByte);
+  EEPROM.write(p_address, lowByte);
+  EEPROM.write(p_address + 1, highByte);
 }
 
 //This function will read a 2 byte integer from the eeprom at the specified address and address + 1

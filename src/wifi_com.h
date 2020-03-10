@@ -4,8 +4,6 @@
 #include <Arduino.h>
 #include <ESP8266WiFi.h>
 
-WiFiClient espClient;
-
 int getWiFiQuality();
 void startWiFi();
 
